@@ -1,5 +1,1 @@
 
-
-### Testar aplicação:
-
-`npm test`
