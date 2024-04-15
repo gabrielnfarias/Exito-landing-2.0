@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Button, Stack, TextField } from "@mui/material";
 import Title from "./Title";
 import Paragraph from "./Paragraph";
+import Detailscss from "../css/Details.css";
 import familia from "../assets/familiii.jpeg";
 
 const Details = () => {
@@ -34,12 +35,13 @@ const Details = () => {
         mx={0}
         textAlign={"center"}
       />{" "}
-      <Box sx={{ display: "flex", gap: "3.5rem" }}>
-        <Box sx={{ boxShadow: "1px 1px 6px #0000010c;", borderRadius: "60px" }}>
-          <img src={familia} alt="" />
+      <Box className="container" sx={{ display: "flex", gap: "3.5rem" }}>
+        <Box>
+          <img className="img-box" src={familia} alt="" />
         </Box>
 
         <Box
+          className="input-group"
           component="form"
           noValidate
           onSubmit={handleSubmit}
