@@ -1,20 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Stack, TextField } from "@mui/material";
 import Title from "./Title";
 import Paragraph from "./Paragraph";
-import Detailscss from "../css/Details.css";
+import DetailsCss from "../css/Details.css";
 import familia from "../assets/familiii.jpeg";
 
 const Details = () => {
-  const handleSubmit = (event) => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      nome: data.get("nome"),
-      email: data.get("email"),
-      celular: data.get("celular"),
-      regiao: data.get("regiao"),
-    });
+    const nome = document.getElementById("firstname");
+    const email = document.getElementById("email");
+    const celular = document.getElementById("celular");
+    const cpf = document.getElementById("cpf");
+    const regiao = document.getElementById("regiao");
+    setSubmitting(true);
+
+    const form = event.currentTarget;
+
+    try {
+      const response = await fetch(
+        "https://deploy-bsckend-exito-complet-git-cac0d5-gabrielnfarias-projects.vercel.app/submit",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nome: form.nome.value,
+            email: form.email.value,
+            celular: form.celular.value,
+            regiao: form.regiao.value,
+            cpf: form.CPF.value,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        alert("Formulário preenchido com sucesso!");
+        form.reset();
+        const redirectTo = data.redirect || "http://localhost:3000/contact";
+        window.location.href = redirectTo;
+      } else {
+        alert("Erro ao enviar o formulário. Tente novamente mais tarde.");
+      }
+    } catch (error) {
+      console.error("Erro ao enviar o formulário:", error);
+      alert("Erro inesperado. Tente novamente mais tarde.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -34,7 +72,7 @@ const Details = () => {
         maxWidth={"sm"}
         mx={0}
         textAlign={"center"}
-      />{" "}
+      />
       <Box className="container" sx={{ display: "flex", gap: "3.5rem" }}>
         <Box>
           <img className="img-box" src={familia} alt="" />
@@ -69,15 +107,14 @@ const Details = () => {
             label="Email"
             name="email"
             autoComplete="email"
-            autoFocus
           />
           <TextField
             margin="normal"
             required
             fullWidth
-            name="phone"
+            name="celular"
             label="Celular"
-            type="phone"
+            type="tel"
             id="celular"
             autoComplete="current-phone"
           />
@@ -85,7 +122,7 @@ const Details = () => {
             margin="normal"
             required
             fullWidth
-            name="Regiao"
+            name="regiao"
             label="Região de interesse (Porto Alegre e região metropolitana)"
             type="text"
             id="regiao"
@@ -97,7 +134,7 @@ const Details = () => {
             fullWidth
             name="CPF"
             label="CPF"
-            type="CPF"
+            type="text"
             id="CPF"
             autoComplete="CPF"
           />
@@ -118,8 +155,9 @@ const Details = () => {
                 backgroundColor: "#1e2a5a",
               },
             }}
+            disabled={submitting}
           >
-            Enviar
+            {submitting ? "Enviando..." : "Enviar"}
           </Button>
         </Box>
       </Box>

@@ -1,14 +1,14 @@
-import React from 'react'
-import Content from '../components/Content';
-import Gallery from '../components/Gallery';
+import React from "react";
+import Content from "../components/Content";
+import Gallery from "../components/Gallery";
 
 const About = () => {
   return (
     <>
-    <Content />
-    <Gallery />
+      <Gallery />
+      <Content />
     </>
-  )
-}
+  );
+};
 
-export default About
+export default About;

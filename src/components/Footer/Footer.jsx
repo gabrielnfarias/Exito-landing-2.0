@@ -39,19 +39,23 @@ const Footer = () => {
         <FooterTitle text={"Endereço"} />
         <FooterLink text={"Av da cavalhada 3884, cavalhada, Porto Alegre"} />
         <FooterLink text={" (51) 98164-8364"} />
-        <FooterLink text={"email.com@gmail.com"} />
+        <FooterLink text={"naassessoria2023@gmail.com"} />
       </StackColumn>
 
       <StackColumn>
         <FooterTitle text={"Nosso serviços"} />
-        <FooterLink text={"Assessoria"} />
-        <FooterLink text={"Assessoria"} />
-        <FooterLink text={"Assessoria"} />
+        <FooterLink
+          text={"Oferecemos o melhor serviço de suporte e assessoria!"}
+        />
+        <FooterLink text={"Assessoria vitalicia durante 3 anos"} />
       </StackColumn>
       <StackColumn>
         <FooterTitle text={"Sobre nós"} />
-        <FooterLink text={"campo texto2"} />
-        <FooterLink text={"campo texto1 "} />
+        <FooterLink
+          text={
+            " Na New Age, líderes em assessoria imobiliária. Mais de 5 anos de experiência. Paixão, conhecimento e inovação. Soluções personalizadas. Missão: simplificar o processo imobiliário, construir relacionamentos duradouros com confiança e resultados excepcionais."
+          }
+        />
       </StackColumn>
 
       <StackColumn>
@@ -64,6 +68,7 @@ const Footer = () => {
         >
           <Link
             href="https://www.instagram.com/new.age_assessoria/"
+            target="_blank"
             variant="body2"
             sx={{
               color: "#414141",

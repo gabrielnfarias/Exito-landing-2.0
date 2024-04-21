@@ -61,7 +61,7 @@ const Gallery = () => {
           paddingBottom: 3,
         }}
       >
-        <Title text={"Voce merece o melhor!"} textAlign={"center"} />
+        <Title text={"Você  merece o melhor!"} textAlign={"center"} />
         <Typography
           variant="h5"
           component="h4"
