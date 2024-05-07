@@ -33,20 +33,23 @@ const Details = () => {
         { abortEarly: false }
       );
 
-      const response = await fetch("http://localhost:3000/submit", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          nome,
-          celular,
-          cpf,
-          regiao,
-        }),
-      });
+      const response = await fetch(
+        "https://deploy-bsckend-exito-complet-git-cac0d5-gabrielnfarias-projects.vercel.app/submit",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            nome,
+            celular,
+            cpf,
+            regiao,
+          }),
+        }
+      );
       setSubmitting(true);
 
       if (response.ok) {

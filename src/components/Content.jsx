@@ -43,7 +43,7 @@ const Content = () => {
         <Paragraph
           text={`
             O programa Minha Casa Minha Vida oferece subsídios de até R$ 55.000, renda familiar a partir de R$ 1.800, entrada 100% parcelada, possibilidade de utilizar o FGTS para abater a entrada e os menores juros do Brasil.`}
-          maxWidth={"75%"}
+          maxWidth={"100%"}
           mx={0}
           textAlign={"start"}
         />
