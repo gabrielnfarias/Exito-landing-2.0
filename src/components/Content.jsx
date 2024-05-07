@@ -37,7 +37,7 @@ const Content = () => {
             paddingTop: 1,
           }}
         >
-          Os melhores benefícios do mercado
+          Os melhores benefícios do mercado.
         </Typography>
 
         <Paragraph

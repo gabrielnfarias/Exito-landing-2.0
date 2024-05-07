@@ -43,7 +43,7 @@ const Header = () => {
             color: "#fff",
           }}
         >
-          Realize o sonho da Casa Propria!
+          Realize o sonho da Casa Própria!
         </Typography>
 
         <Typography

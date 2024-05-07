@@ -56,7 +56,8 @@ const Details = () => {
         const data = await response.json();
         alert("Formulário preenchido com sucesso!");
 
-        const redirectTo = data.redirect || "http://localhost:3001/contact";
+        const redirectTo =
+          data.redirect || "https://new-age-eta.vercel.app/contact";
         window.location.href = redirectTo;
       } else {
         alert("Erro ao enviar o formulário. Tente novamente mais tarde.");
