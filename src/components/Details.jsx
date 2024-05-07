@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import * as yup from "yup"; // Importação do yup
 import { Box, Button, Stack, TextField } from "@mui/material";
 import Title from "./Title";
 import Paragraph from "./Paragraph";
@@ -6,50 +7,60 @@ import DetailsCss from "../css/Details.css";
 import familia from "../assets/familiii.jpeg";
 
 const Details = () => {
+  // Define o estado para cada campo do formulário
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [celular, setCelular] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [regiao, setRegiao] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState({}); // Estado para armazenar erros de validação
+
+  const validationSchema = yup.object().shape({
+    nome: yup.string().required("Nome é obrigatório"),
+    email: yup.string().email("Email inválido").required("Email é obrigatório"),
+    celular: yup.string().required("Celular é obrigatório"),
+    cpf: yup.string().required("CPF é obrigatório"),
+    regiao: yup.string().required("Região é obrigatória"),
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const nome = document.getElementById("firstname");
-    const email = document.getElementById("email");
-    const celular = document.getElementById("celular");
-    const cpf = document.getElementById("cpf");
-    const regiao = document.getElementById("regiao");
-    setSubmitting(true);
-
-    const form = event.currentTarget;
 
     try {
-      const response = await fetch(
-        "https://deploy-bsckend-exito-complet-git-cac0d5-gabrielnfarias-projects.vercel.app/submit",
-        {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            nome: form.nome.value,
-            email: form.email.value,
-            celular: form.celular.value,
-            regiao: form.regiao.value,
-            cpf: form.CPF.value,
-          }),
-        }
+      await validationSchema.validate(
+        { nome, email, celular, cpf, regiao },
+        { abortEarly: false }
       );
+
+      const response = await fetch("http://localhost:3000/submit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          nome,
+          celular,
+          cpf,
+          regiao,
+        }),
+      });
+      setSubmitting(true);
 
       if (response.ok) {
         const data = await response.json();
         alert("Formulário preenchido com sucesso!");
-        form.reset();
-        const redirectTo = data.redirect || "http://localhost:3000/contact";
+
+        const redirectTo = data.redirect || "http://localhost:3001/contact";
         window.location.href = redirectTo;
       } else {
         alert("Erro ao enviar o formulário. Tente novamente mais tarde.");
       }
     } catch (error) {
-      console.error("Erro ao enviar o formulário:", error);
-      alert("Erro inesperado. Tente novamente mais tarde.");
+      console.log(error.message);
+      alert("Preencha todos os campos!");
     } finally {
       setSubmitting(false);
     }
@@ -68,7 +79,7 @@ const Details = () => {
     >
       <Title text={"Não Perca essa oportunidade!"} textAlign={"center"} />
       <Paragraph
-        text={"Faça uma Analise de Crédito agora com um de nossos consultores!"}
+        text={"Faça uma Análise de Crédito agora com um de nossos consultores!"}
         maxWidth={"sm"}
         mx={0}
         textAlign={"center"}
@@ -88,7 +99,6 @@ const Details = () => {
             py: 2,
           }}
         >
-          {" "}
           <TextField
             margin="normal"
             required
@@ -98,6 +108,8 @@ const Details = () => {
             name="nome"
             autoComplete="nome"
             autoFocus
+            value={nome}
+            onChange={(event) => setNome(event.target.value)}
           />
           <TextField
             margin="normal"
@@ -107,6 +119,8 @@ const Details = () => {
             label="Email"
             name="email"
             autoComplete="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
           <TextField
             margin="normal"
@@ -117,6 +131,8 @@ const Details = () => {
             type="tel"
             id="celular"
             autoComplete="current-phone"
+            value={celular}
+            onChange={(event) => setCelular(event.target.value)}
           />
           <TextField
             margin="normal"
@@ -127,6 +143,8 @@ const Details = () => {
             type="text"
             id="regiao"
             autoComplete="regiao"
+            value={regiao}
+            onChange={(event) => setRegiao(event.target.value)}
           />
           <TextField
             margin="normal"
@@ -135,13 +153,15 @@ const Details = () => {
             name="CPF"
             label="CPF"
             type="text"
-            id="CPF"
+            id="cpf"
             autoComplete="CPF"
+            value={cpf}
+            onChange={(event) => setCpf(event.target.value)}
           />
           <Button
+            type="submit"
             variant="contained"
             fullWidth
-            type="submit"
             size="medium"
             sx={{
               fontSize: "0.9rem",

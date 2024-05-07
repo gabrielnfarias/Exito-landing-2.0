@@ -14,23 +14,23 @@ const Gallery = () => {
   const imageData = [
     {
       alt: "image1",
-      url: "https://scontent-gru2-2.xx.fbcdn.net/v/t39.30808-6/434773199_2757270704429006_8361040006911613125_n.jpg?stp=dst-jpg_p720x720&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=2ruqbjtJ__YAb5UCe4b&_nc_ht=scontent-gru2-2.xx&oh=00_AfB5oJGUOMtmGKW1McdQj4TK7FaX_HMhp2E6BSZNmSq3zg&oe=66221C06",
+      url: "https://i.pinimg.com/564x/5d/92/97/5d929797b86afcacbc12152c9330cb82.jpg",
     },
     {
       alt: "image2",
-      url: "https://scontent-gru2-1.xx.fbcdn.net/v/t45.5328-4/421756813_7016263818477669_6198289421115821393_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=247b10&_nc_ohc=vICl5tvCau4Ab7u7pwW&_nc_ht=scontent-gru2-1.xx&oh=00_AfDE4NHEunwQEFhPQ4a2iVGMBDTy_a_cPeBQxS-5CWN_og&oe=66222FFC",
+      url: "https://i.pinimg.com/564x/d8/94/1d/d8941d5a7046cbc5b01816f5ed6b3dc4.jpg",
     },
     {
       alt: "image3",
-      url: "https://scontent-gru1-2.xx.fbcdn.net/v/t39.30808-6/434466626_2757274684428608_7349485361989643933_n.jpg?stp=dst-jpg_p720x720&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=0FUUxOhcPmsAb5W8KxX&_nc_ht=scontent-gru1-2.xx&oh=00_AfA5Z4ypP1v68Z3QJtUB-NvF-_gqzIvbsfuFwY4Jf8HB3g&oe=6622118B",
+      url: "https://i.pinimg.com/564x/27/d8/1d/27d81d5fe9f373afbdef81ab28530d15.jpg",
     },
     {
       alt: "image4",
-      url: "https://scontent-gru2-1.xx.fbcdn.net/v/t39.30808-6/434728495_2757270641095679_9139232810463090654_n.jpg?stp=dst-jpg_p720x720&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=1n81BZMFLzgAb79tyB_&_nc_ht=scontent-gru2-1.xx&oh=00_AfATRw1NLh3bC_g8Jw26EI75lf5V4rLx5TqhV3yHcetspw&oe=66223CC6",
+      url: "https://i.pinimg.com/564x/d4/05/17/d40517c53236a3143566061d6e978e0a.jpg",
     },
     {
       alt: "image5",
-      url: "https://scontent-gru1-1.xx.fbcdn.net/v/t45.5328-4/431827495_389813777250374_3485076261312384012_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=247b10&_nc_ohc=7l64pNMdDS4Ab6PIsLW&_nc_oc=Adh349z8leDufwdlsRbZN-IgsigYFFL2a0IGFS3y-WS5vZrqbVreTi7RjKsSoUBFY0KYpkRQM93tnywWPW0lMTrk&_nc_ht=scontent-gru1-1.xx&oh=00_AfCpvkYiJ7tGxNf1zqAfMztMsPx_vLasEqE_FS52eZ3n0Q&oe=66223EB9",
+      url: "https://i.pinimg.com/564x/ed/1e/9c/ed1e9cccddaa2713d59f9fe3af0339a0.jpg",
     },
   ];
 
