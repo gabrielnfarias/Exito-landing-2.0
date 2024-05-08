@@ -77,7 +77,7 @@ const Content = () => {
             >
               Demhab
               <Paragraph
-                text={` A DEMHAB oferece subsídios de R$ 15 mil para famílias de até três salários mínimos, na compra da casa própria. 
+                text={` Subsídio DEMHAB de R$ 15 mil para famílias. 
                    `}
                 maxWidth={"100%"}
                 mx={0}
@@ -116,7 +116,7 @@ const Content = () => {
             >
               Subsídio
               <Paragraph
-                text={` Subsídio de até R$ 55.000,00 pela Caixa Econômica Federal para aquisição do seu imóvel próprio!
+                text={` Subsídio de até R$ 55.000,00 pela Caixa!
                    `}
                 maxWidth={"100%"}
                 mx={0}
@@ -177,9 +177,9 @@ const Content = () => {
                 textTransform: "capitalize",
               }}
             >
-              Menor Taxa de juros do mercado!
+              Menor Taxa do mercado!
               <Paragraph
-                text={` Subsídio de até R$ 55.000,00 pela Caixa Econômica Federal para aquisição do seu imóvel próprio!
+                text={` Juros do mercado de 4% a 9%!
                    `}
                 maxWidth={"100%"}
                 mx={0}
@@ -217,7 +217,7 @@ const Content = () => {
             >
               Use seu FGTS
               <Paragraph
-                text={` Subsídio de até R$ 55.000,00 pela Caixa Econômica Federal para aquisição do seu imóvel próprio!
+                text={` Use seu FGTS para abater a entrada!
                    `}
                 maxWidth={"100%"}
                 mx={0}
@@ -255,7 +255,7 @@ const Content = () => {
             >
               Entrada 100% parcelada
               <Paragraph
-                text={` Subsídio de até R$ 55.000,00 pela Caixa Econômica Federal para aquisição do seu imóvel próprio!
+                text={` Parcelamento de entrada em até 100%.
                    `}
                 maxWidth={"100%"}
                 mx={0}
